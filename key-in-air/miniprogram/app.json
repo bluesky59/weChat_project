@@ -1,0 +1,20 @@
+{
+  "cloud": false,
+  "pages": [
+    "pages/main/main",
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "AI风行空中钥匙",
+    "navigationBarTextStyle": "black"
+  },
+  "plugins": {
+    "crypto": {
+      "version": "0.0.003",
+      "provider": "wxf25d506ff81e19fb"
+    }
+  }
+}

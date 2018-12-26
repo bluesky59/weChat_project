@@ -1,0 +1,55 @@
+<view class="main-container">
+  <view class='main-header'>
+    <text>车主: {{userInfo.ownerName}}</text>
+    <text class='main-info-text'>vin: {{userInfo.vin}}</text>
+  </view>
+
+  <view class='main-map-container'>
+    <map class='main-map' id="myMap" longitude="{{longitude}}" latitude=" {{latitude}}" markers="{{markers}}" scale="16" show-location />
+    <view class='main-map-location'>位置：{{address}}</view>
+  </view>
+
+  <view class='authorization-title'>
+    <text class='authorization-divider'>  </text>
+    <text>授权功能列表</text>
+  </view>
+
+  <view class='main-collection'>
+    <view class='main-collection-warp'>
+      <view bindtap='sendCmdHander' class='main-collection-unit' wx:for='{{cmdList}}' wx:key='index' wx:for-item='item'>
+        <image class='main-cmd-img' src='../../images/door.png' wx:if='{{index === 0}}'></image>
+        <image class='main-cmd-img' src='../../images/window_full.png' wx:if='{{index === 1}}'></image>
+        <image class='main-cmd-img' src='../../images/skylight_open.png' wx:if='{{index === 2}}'></image>
+        <image class='main-cmd-img' src='../../images/trunk_open.png' wx:if='{{index === 3}}'></image>
+        <image class='main-cmd-img' src='../../images/snow.png' wx:if='{{index === 4}}'></image>
+        <image class='main-cmd-img' src='../../images/sun.png' wx:if='{{index === 5}}'></image>
+        <text class='main-cmdName'>{{item.name}}</text>
+      </view>
+    </view>
+    <view class='main-bluetooth' bindtap='switchBluetooth'>
+      <image wx:if="{{bluetoothStatus === 'close'}}" class='main-bluetooth-img' src='../../images/bluetooth-close.png'></image>
+      <image wx:if="{{bluetoothStatus === 'ing'}}" class='main-bluetooth-img' src='../../images/bluetooth-ing.png'></image>
+      <image wx:if="{{bluetoothStatus === 'open'}}" class='main-bluetooth-img' src='../../images/bluetooth-open.png'></image>
+      <text class='main-bluetooth-txt'>{{bluetoothTips}}</text>
+    </view>
+  </view>
+
+  <!-- <view class='main-app-skip'>打开"AI风行" >></view> -->
+
+  <view class='main-mask' wx:if="{{isServicing}}">
+    <view class='main-mask-content'>
+      <view wx:if="{{isSuccess === true}}">
+        <image class='mask-res-tag' src='../../images/success.png'></image>
+        <text class='mask-res-tips'>执行成功</text>
+      </view>
+      <view wx:if="{{isSuccess === false}}">
+        <image class='mask-res-tag' src='../../images/error.png'></image>
+        <text class='mask-res-tips'>执行失败，车辆未安装T盒</text>
+      </view>
+      <view wx:if="{{isSuccess === ''}}">
+        <image class='mask-res-ing' src='../../images/loading.png'></image>
+        <text class='mask-res-tips'>执行中，请等待结果...</text>
+      </view>
+    </view>
+  </view>
+</view>

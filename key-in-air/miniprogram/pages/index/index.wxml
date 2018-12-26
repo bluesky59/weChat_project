@@ -1,0 +1,21 @@
+<view class="index-container">
+  <view class='index-header'>
+    <image class='index-header-img' src='../../images/personal-bg.png'></image>
+    <view class='index-user-img'>
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <open-data class='index-user-nickname' type="userNickName"></open-data>
+  </view>
+
+  <view class='authorization-title'>
+    <text class='authorization-divider'>  </text>
+    <text>授权列表</text>
+  </view>
+
+  <view class='index-entrance'>
+    <view bindtap='skipToPerformPage' class='index-entrance-unit' wx:for='{{authorizationList}}' wx:key='index' wx:for-item='item' data-name='{{item.name}}' data-vin='{{item.vin}}'>
+      <text class='index-ownername'>{{item.name}}</text>
+      <text class='index-vin'>{{item.vin}} ></text>
+    </view>
+  </view>
+</view>
